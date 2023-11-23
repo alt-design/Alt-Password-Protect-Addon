@@ -1,0 +1,42 @@
+sections:
+  alt_password_protect:
+    display: "Alt Password Protect"
+    fields:
+        -
+          handle: protect
+          field:
+            options:
+              none: None
+              alt_password_protect_custom:  Custom Password
+            taggable: false
+            push_tags: false
+            multiple: false
+            max_items: 1
+            clearable: false
+            searchable: true
+            cast_booleans: false
+            default: none
+            type: select
+            display: 'Password Protect'
+            icon: select
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            replicator_preview: true
+            hide_display: false
+        -
+          handle: custom_password
+          field:
+            input_type: text
+            antlers: false
+            type: text
+            display: 'Custom Password'
+            icon: text
+            listable: hidden
+            instructions_position: above
+            visibility: visible
+            replicator_preview: true
+            hide_display: false
+            if:
+              protect: 'equals alt_password_protect_custom'
+

@@ -1,0 +1,19 @@
+{
+    "name": "alt-design/alt-password-protect",
+    "autoload": {
+        "psr-4": {
+            "AltDesign\\AltPasswordProtect\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Alt Password Protect",
+            "description": "Alt Password Protect addon"
+        },
+        "laravel": {
+            "providers": [
+                "AltDesign\\AltPasswordProtect\\ServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,14 +1,12 @@
 # Alt Password Protect
 
-> Alt Password Protect is a Statamic addon that does something pretty neat.
+> Secure your Statamic entries with user friendly, individualized password protection
 
 ## Features
 
-This addon does:
-
-- This
-- And this
-- And even this
+- Choose which entries to password protect
+- Choose individual password for each entry
+- Extends, but doesnt affect, existing Statamic password protection
 
 ## How to Install
 
@@ -20,4 +18,20 @@ composer require alt-design/alt-password-protect
 
 ## How to Use
 
-Here's where you can explain how to use this wonderful addon.
+- In config/statamic/protect.php, to the schemes array add:
+``` bash
+        'alt_password_protect_custom' => [
+            'driver' => 'alt_password_protect_custom',
+        ],
+
+        'none' => [
+            'driver' => 'none',
+        ],
+```
+
+In entries, on the Alt Password Protect tab select Custom Password and enter your chosen password for the entry.
+
+To hide password protected entries when displaying collections use 
+``` bash
+{{ collection:example protect:isnt="alt_password_protect_custom"}}
+```

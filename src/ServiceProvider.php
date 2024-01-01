@@ -75,6 +75,7 @@ class ServiceProvider extends AddonServiceProvider
 
         // Add to Statamic Config
         $this->mergeConfigFrom(__DIR__.'/Config/protect.php', 'statamic.protect.schemes');
+
     }
 
     public function bootAddon()

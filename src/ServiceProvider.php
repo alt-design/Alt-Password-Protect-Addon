@@ -74,17 +74,7 @@ class ServiceProvider extends AddonServiceProvider
         });
 
         // Add to Statamic Config
-        config('statamic.protect')['alt_password_protect_custom'] = [
-            'driver' => 'alt_password_protect_custom',
-        ];
-
-        config('statamic.protect')['alt_password_protect_default'] = [
-            'driver' => 'alt_password_protect_default',
-        ];
-
-        config('statamic.protect')['none'] = [
-            'driver' => 'none',
-        ];
+        $this->mergeConfigFrom(__DIR__.'/Config/protect.php', 'statamic.protect.schemes');
     }
 
     public function bootAddon()

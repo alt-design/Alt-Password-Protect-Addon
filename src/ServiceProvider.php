@@ -3,6 +3,7 @@
 namespace AltDesign\AltPasswordProtect;
 
 use AltDesign\AltPasswordProtect\Events\UpdateBlueprint;
+use AltDesign\AltPasswordProtect\Tags\Collection;
 use Illuminate\Support\Facades\Event;
 use Statamic\Facades\CP\Nav;
 use Statamic\Facades\Permission;
@@ -21,6 +22,10 @@ class ServiceProvider extends AddonServiceProvider
 
     protected $modifiers = [
         //
+    ];
+
+    protected $tags = [
+        Collection::class
     ];
 
     protected $routes = [

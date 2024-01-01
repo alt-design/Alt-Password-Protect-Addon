@@ -68,7 +68,6 @@ class AltController extends PasswordProtectController {
 
         if($this->tokenData['scheme'] == 'alt_password_protect_custom') {
             // Alt Custom Password
-
             $pageUrl = $this->getUrl();
             $pagePassword = $this->pagePassword($pageUrl);
 
@@ -84,7 +83,6 @@ class AltController extends PasswordProtectController {
                 ->redirect();
         } else {
             // General Statamic Password
-
             $guard = new Guard($this->getScheme());
 
             if (! $guard->check($this->password)) {

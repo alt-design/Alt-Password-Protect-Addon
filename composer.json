@@ -1,5 +1,7 @@
 {
     "name": "alt-design/alt-password-protect",
+    "description": "Alt Password Protect - hide your pages behind a password",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "AltDesign\\AltPasswordProtect\\": "src"

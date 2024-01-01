@@ -121,9 +121,8 @@ class AltController extends PasswordProtectController {
 
     protected function pagePassword($url)
     {
-        $siteUrl = 'http' . (isset($_SERVER['HTTPS']) ? 's' : '') . '://' . "{$_SERVER['HTTP_HOST']}";
-        $uri = str_replace($siteUrl, "", $url);
-        $entry = Entry::findByUri($uri);
+        $parts = parse_url($url);
+        $entry = Entry::findByUri(($parts['path'] ?? '/'));
         return $entry->get('custom_password');
     }
 }

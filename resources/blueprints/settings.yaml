@@ -10,10 +10,9 @@ tabs:
             field:
               default: true
               type: toggle
-              display: 'Hide password protected entries from listings? (Coming Soon)'
+              display: 'Hide password protected entries from listings?'
               icon: toggle
               listable: hidden
               instructions_position: above
-              visibility: hidden
               replicator_preview: true
               hide_display: false

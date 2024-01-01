@@ -6,7 +6,6 @@ class CustomGuard
     public function __construct($pagePassword)
     {
         $this->pagePassword = $pagePassword;
-
     }
 
     public function check($password)

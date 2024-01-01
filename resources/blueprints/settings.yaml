@@ -6,14 +6,28 @@ tabs:
       -
         fields:
           -
+            handle: alt_protect_custom_password_default
+            field:
+              input_type: text
+              antlers: false
+              type: text
+              display: 'Default Password'
+              instructions: 'When you select "default password" in the password protect field, this is the password that will be used.'
+              icon: text
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+          -
             handle: hide_password_protected_entries_from_listings
             field:
               default: true
               type: toggle
-              display: 'Hide password protected entries from listings? (Coming Soon)'
+              display: 'Hide password protected entries from listings?'
+              instructions: 'If enabled, password protected entries will not be shown in listings. You can override this on a per-listing basis by adding `alt_protect_ignore="true"` to the listing.'
               icon: toggle
               listable: hidden
               instructions_position: above
-              visibility: hidden
               replicator_preview: true
               hide_display: false

@@ -3,6 +3,7 @@
 namespace AltDesign\AltPasswordProtect;
 
 use AltDesign\AltPasswordProtect\Events\UpdateBlueprint;
+use AltDesign\AltPasswordProtect\Tags\Collection;
 use Illuminate\Support\Facades\Event;
 use Statamic\Facades\CP\Nav;
 use Statamic\Facades\Permission;
@@ -21,6 +22,10 @@ class ServiceProvider extends AddonServiceProvider
 
     protected $modifiers = [
         //
+    ];
+
+    protected $tags = [
+        Collection::class
     ];
 
     protected $routes = [
@@ -60,9 +65,26 @@ class ServiceProvider extends AddonServiceProvider
             return new CustomPasswordProtector;
         });
 
+        app(ProtectorManager::class)->extend('alt_password_protect_default', function ($app) {
+            return new CustomPasswordProtector;
+        });
+
         app(ProtectorManager::class)->extend('none', function ($app) {
             return new UnsetPasswordProtector;
         });
+
+        // Add to Statamic Config
+        config('statamic.protect')['alt_password_protect_custom'] = [
+            'driver' => 'alt_password_protect_custom',
+        ];
+
+        config('statamic.protect')['alt_password_protect_default'] = [
+            'driver' => 'alt_password_protect_default',
+        ];
+
+        config('statamic.protect')['none'] = [
+            'driver' => 'none',
+        ];
     }
 
     public function bootAddon()

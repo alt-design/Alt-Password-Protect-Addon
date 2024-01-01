@@ -3,7 +3,7 @@
 @section('content')
     <div>
         <publish-form
-            title="Alt Password Protect Settings - Coming soon!"
+            title="Alt Password Protect Settings"
             action="{{ cp_route('alt-password-protect.update') }}"
             :blueprint='@json($blueprint)'
             :meta='@json($meta)'

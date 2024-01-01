@@ -72,6 +72,19 @@ class ServiceProvider extends AddonServiceProvider
         app(ProtectorManager::class)->extend('none', function ($app) {
             return new UnsetPasswordProtector;
         });
+
+        // Add to Statamic Config
+        config('statamic.protect')['alt_password_protect_custom'] = [
+            'driver' => 'alt_password_protect_custom',
+        ];
+
+        config('statamic.protect')['alt_password_protect_default'] = [
+            'driver' => 'alt_password_protect_default',
+        ];
+
+        config('statamic.protect')['none'] = [
+            'driver' => 'none',
+        ];
     }
 
     public function bootAddon()

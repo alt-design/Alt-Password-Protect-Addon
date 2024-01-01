@@ -66,10 +66,15 @@ class AltController extends PasswordProtectController {
             return back()->withErrors(['token' => __('statamic::messages.password_protect_token_invalid')], 'passwordProtect');
         }
 
-        if($this->tokenData['scheme'] == 'alt_password_protect_custom') {
+        if($this->tokenData['scheme'] == 'alt_password_protect_custom' || $this->tokenData['scheme'] == 'alt_password_protect_default') {
             // Alt Custom Password
             $pageUrl = $this->getUrl();
-            $pagePassword = $this->pagePassword($pageUrl);
+            if($this->tokenData['scheme'] == 'alt_password_protect_default') {
+                $theData = new Data('settings');
+                $pagePassword = $theData->get('alt_protect_custom_password_default');
+            } else {
+                $pagePassword = $this->pagePassword($pageUrl);
+            }
 
             $guard = new CustomGuard($pagePassword);
 
@@ -119,6 +124,6 @@ class AltController extends PasswordProtectController {
 
     protected function pagePassword($url)
     {
-        return Entry::findByUri((parse_url($url)['path'] ?? '/'))->get('custom_password');
+        return Entry::findByUri((parse_url($url)['path'] ?? '/'))->get('alt_protect_custom_password');
     }
 }

@@ -3,10 +3,11 @@ sections:
     display: "Alt Password Protect"
     fields:
         -
-          handle: protect
+          handle: alt_protect
           field:
             options:
               none: None
+              alt_password_protect_default: Default Password
               alt_password_protect_custom:  Custom Password
             taggable: false
             push_tags: false
@@ -18,6 +19,7 @@ sections:
             default: none
             type: select
             display: 'Password Protect'
+            instructions: 'Default password set in site settings'
             icon: select
             listable: hidden
             instructions_position: above
@@ -25,7 +27,7 @@ sections:
             replicator_preview: true
             hide_display: false
         -
-          handle: custom_password
+          handle: alt_protect_custom_password
           field:
             input_type: text
             antlers: false

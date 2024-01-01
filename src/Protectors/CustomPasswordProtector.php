@@ -7,7 +7,7 @@ class CustomPasswordProtector extends Protector
 {
     public function protect()
     {
-        if ($this->data->custom_password == null) {
+        if ($this->data->alt_protect_custom_password == null) {
             abort(403);
         }
 
@@ -27,7 +27,7 @@ class CustomPasswordProtector extends Protector
         public function hasEnteredValidPassword()
     {
 
-        return (new CustomGuard($this->data->custom_password))->check(
+        return (new CustomGuard($this->data->alt_protect_custom_password))->check(
             session("statamic:protect:password.passwords.{$this->scheme}.{$this->url}")
         );
     }

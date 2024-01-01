@@ -1,12 +1,14 @@
 # Alt Password Protect
 
-> Secure your Statamic entries with user friendly, individualized password protection
+> Secure your Statamic entries with user-friendly, individualized password protection
 
 ## Features
 
 - Choose which entries to password protect
 - Choose individual password for each entry
-- Extends, but doesnt affect, existing Statamic password protection
+- Choose default password for all selected entries
+- Hide password protected entries from collection listings, and then override if needed
+- Extends, but doesn't affect, existing Statamic password protection
 
 ## How to Install
 
@@ -18,20 +20,22 @@ composer require alt-design/alt-password-protect
 
 ## How to Use
 
-- In config/statamic/protect.php, to the schemes array add:
-``` bash
-        'alt_password_protect_custom' => [
-            'driver' => 'alt_password_protect_custom',
-        ],
+The Addon adds another tab onto entries, which allows you to select whether you want default password protection, a custom password, or none. You can set the default site password by going to `Alt Password Protect` in the control panel.
 
-        'none' => [
-            'driver' => 'none',
-        ],
-```
+There's also the ability to remove the password protected items from collections, so that they don't show up in the collection listing. This is useful if you want to have a collection of password protected items, but don't want to show them in the collection listing. You can also tweak this setting in the settings (ofc).
 
-In entries, on the Alt Password Protect tab select Custom Password and enter your chosen password for the entry.
+You can then also override the hide using `alt_protect_ignore="true"` on your collection tag.
 
-To hide password protected entries when displaying collections use 
-``` bash
-{{ collection:example protect:isnt="alt_password_protect_custom"}}
-```
+## Questions etc
+
+Drop us a big shout-out if you have any questions, comments, or concerns. We're always looking to improve our addons, so if you have any feature requests, we'd love to hear them.
+
+Also - check out our other addons!
+- [Alt SEO Addon](https://github.com/alt-design/Alt-SEO-Addon)
+- [Alt Redirect Addon](https://github.com/alt-design/Alt-Redirect-Addon)
+- [Alt Sitemap Addon](https://github.com/alt-design/Alt-Sitemap-Addon)
+- [Alt Akismet Addon](https://github.com/alt-design/Alt-Akismet-Addon)
+
+## Postcardware
+
+Send us a postcard from your hometown if you like this addon. We love getting mail from other cool peeps!

@@ -65,6 +65,10 @@ class ServiceProvider extends AddonServiceProvider
             return new CustomPasswordProtector;
         });
 
+        app(ProtectorManager::class)->extend('alt_password_protect_default', function ($app) {
+            return new CustomPasswordProtector;
+        });
+
         app(ProtectorManager::class)->extend('none', function ($app) {
             return new UnsetPasswordProtector;
         });

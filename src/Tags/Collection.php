@@ -22,7 +22,7 @@ class Collection extends \Statamic\Tags\Collection\Collection
 
         $theData = new Data('settings');
         if($theData->get('hide_password_protected_entries_from_listings') == true) {
-            $this->params['protect:not'] = 'alt_password_protect_custom';
+            $this->params['protect:not_in'] = 'alt_password_protect_custom|alt_password_protect_default';
             $this->params['protect:empty'] = true;
         }
 

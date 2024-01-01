@@ -3,7 +3,7 @@ sections:
     display: "Alt Password Protect"
     fields:
         -
-          handle: alt_protect
+          handle: protect
           field:
             options:
               none: None

@@ -113,7 +113,6 @@ class AltController extends PasswordProtectController {
 
     protected function storeCustomPassword()
     {
-
         session()->put(
             "statamic:protect:password.passwords.{$this->getScheme()}.{$this->getUrl()}",
             $this->password

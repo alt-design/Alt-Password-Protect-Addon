@@ -1,7 +1,7 @@
 <?php namespace AltDesign\AltPasswordProtect\Events;
 
 use Statamic\Events;
-use Statamic\Facades\Blueprint;
+use Statamic\Fields\BlueprintRepository as Blueprint;
 use Statamic\Facades\Entry;
 use AltDesign\AltPasswordProtect\Helpers\Data;
 

@@ -15,9 +15,8 @@ class Collection extends \Statamic\Tags\Collection\Collection
 
         // Check whether we're removing the protected entries
         if(isset($this->params['alt_protect_ignore']) && $this->params['alt_protect_ignore'] == true) {
-            return $this->output(
-                $this->entries()->get()
-            );
+            $this->params['protect:not_in'] = 'alt_password_protect_custom|alt_password_protect_default';
+            $this->params['protect:empty'] = true;
         }
 
         $theData = new Data('settings');

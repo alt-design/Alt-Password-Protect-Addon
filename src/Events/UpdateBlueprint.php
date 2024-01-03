@@ -46,7 +46,7 @@ class UpdateBlueprint
         // Grab the old directory just in case
         $oldDirectory = Blueprint::directory();
 
-        $blueprint = Blueprint::setDirectory(__DIR__ . '/../../resources/blueprints')->find('entry');
+        $blueprint = with(new Blueprint)->setDirectory(__DIR__ . '/../../resources/blueprints')->find('entry');
 
         // Check if they've set the event settings, continue if not
         if(!empty($event->blueprint)) {
@@ -61,7 +61,7 @@ class UpdateBlueprint
         $event->blueprint->setContents($blueprintReady);
 
         // Reset the directory to the old one
-        Blueprint::setDirectory($oldDirectory);
+        with(new Blueprint)->setDirectory($oldDirectory);
     }
 
 

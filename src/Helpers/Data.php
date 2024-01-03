@@ -1,6 +1,6 @@
 <?php namespace AltDesign\AltPasswordProtect\Helpers;
 
-use Statamic\Fields\BlueprintRepository as Blueprint;
+use Statamic\Fields\BlueprintRepository;
 use Statamic\Facades\YAML;
 use Statamic\Filesystem\Manager;
 
@@ -71,7 +71,7 @@ class Data
     public function getBlueprint($default = false)
     {
         if($default) {
-            return with(new Blueprint)->setDirectory(__DIR__ . '/../../resources/blueprints')->find($this->type);
+            return with(new BlueprintRepository)->setDirectory(__DIR__ . '/../../resources/blueprints')->find($this->type);
         }
 
         return false;

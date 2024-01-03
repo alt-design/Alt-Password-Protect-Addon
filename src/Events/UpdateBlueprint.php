@@ -1,7 +1,9 @@
 <?php namespace AltDesign\AltPasswordProtect\Events;
 
 use Statamic\Events;
-use Statamic\Fields\BlueprintRepository as Blueprint;
+use Statamic\Fields\BlueprintRepository;
+use Statamic\Fields\Blueprint;
+
 use Statamic\Facades\Entry;
 use AltDesign\AltPasswordProtect\Helpers\Data;
 
@@ -44,9 +46,9 @@ class UpdateBlueprint
     public function updateBlueprintData($event)
     {
         // Grab the old directory just in case
-        $oldDirectory = with(new Blueprint)->directory();
+        $oldDirectory = Blueprint::directory();
 
-        $blueprint = with(new Blueprint)->setDirectory(__DIR__ . '/../../resources/blueprints')->find('entry');
+        $blueprint = with(new BlueprintRepository)->setDirectory(__DIR__ . '/../../resources/blueprints')->find('entry');
 
         // Check if they've set the event settings, continue if not
         if(!empty($event->blueprint)) {
@@ -61,7 +63,7 @@ class UpdateBlueprint
         $event->blueprint->setContents($blueprintReady);
 
         // Reset the directory to the old one
-        with(new Blueprint)->setDirectory($oldDirectory);
+        Blueprint::setDirectory($oldDirectory);
     }
 
 

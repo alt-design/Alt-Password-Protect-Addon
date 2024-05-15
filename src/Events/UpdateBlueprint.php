@@ -1,6 +1,7 @@
 <?php namespace AltDesign\AltPasswordProtect\Events;
 
 use Statamic\Events;
+use Statamic\Facades\Blink;
 use Statamic\Fields\BlueprintRepository;
 use Statamic\Fields\Blueprint;
 
@@ -60,6 +61,7 @@ class UpdateBlueprint
 
 
         // Set the contents
+        Blink::forget("blueprint-contents-{$event->blueprint->namespace()}-{$event->blueprint->handle()}");
         $event->blueprint->setContents($blueprintReady);
 
         // Reset the directory to the old one

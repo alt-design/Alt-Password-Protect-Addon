@@ -31,19 +31,19 @@ You can then also override the hide using `alt_protect_ignore="true"` on your co
 Drop us a big shout-out if you have any questions, comments, or concerns. We're always looking to improve our addons, so if you have any feature requests, we'd love to hear them.
 
 Also - check out our other addons!
-- [Alt Redirect Addon](https://github.com/alt-design/Alt-Redirect-Addon)
-- [Alt Sitemap Addon](https://github.com/alt-design/Alt-Sitemap-Addon)
-- [Alt Akismet Addon](https://github.com/alt-design/Alt-Akismet-Addon)
-- [Alt Password Protect Addon](https://github.com/alt-design/Alt-Password-Protect-Addon)
 - [Alt Cookies Addon](https://github.com/alt-design/Alt-Cookies-Addon)
+- [Alt Redirect Addon](https://github.com/alt-design/Alt-Redirect-Addon)
+- [Alt Akismet Addon](https://github.com/alt-design/Alt-Akismet-Addon)
 - [Alt Inbound Addon](https://github.com/alt-design/Alt-Inbound-Addon)
+- [Alt Sitemap Addon](https://github.com/alt-design/Alt-Sitemap-Addon)
+- [Alt Password Protect Addon](https://github.com/alt-design/Alt-Password-Protect-Addon)
 
 ## Postcardware
 
 Send us a postcard from your hometown if you like this addon. We love getting mail from other cool peeps!
 
 Alt Design  
-St Helen's House
+St Helens House  
 Derby  
-DE1 3EE
-UK  
+DE1 3EE  
+UK

@@ -70,6 +70,7 @@ class CustomPasswordProtector extends Protector
         session()->put("statamic:protect:password.tokens.$token", [
             'scheme' => $this->scheme,
             'url' => $this->url,
+            'reference' => $this->data->reference()
         ]);
 
         return $token;

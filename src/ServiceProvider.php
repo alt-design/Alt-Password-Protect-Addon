@@ -83,5 +83,8 @@ class ServiceProvider extends AddonServiceProvider
         $this->registerEvents();
         $this->registerDrivers();
         $this->register();
+        $this->publishes([
+            __DIR__.'/../resources/blueprints/entry.yaml' => base_path('resources/blueprints/vendor/alt-password-protect/entry.yaml'),
+        ], 'alt-password-protect-entry');
     }
 }

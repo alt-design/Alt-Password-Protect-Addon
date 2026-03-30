@@ -11,7 +11,7 @@ class UnsetPasswordProtector extends Protector
         return;
     }
 
-    public function cachable()
+    public function cacheable()
     {
         return true;
     }

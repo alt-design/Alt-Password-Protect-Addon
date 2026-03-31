@@ -49,7 +49,12 @@ class UpdateBlueprint
         // Grab the old directory just in case
         $oldDirectory = Blueprint::directory();
 
-        $blueprint = with(new BlueprintRepository)->setDirectory(__DIR__ . '/../../resources/blueprints')->find('entry');
+        $publishedPath = resource_path('blueprints/vendor/alt-password-protect');
+        $blueprintDir = file_exists($publishedPath . '/entry.yaml')
+            ? $publishedPath
+            : __DIR__ . '/../../resources/blueprints';
+
+        $blueprint = with(new BlueprintRepository)->setDirectory($blueprintDir)->find('entry');
 
         // Check if they've set the event settings, continue if not
         if(!empty($event->blueprint)) {

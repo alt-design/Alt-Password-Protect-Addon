@@ -86,7 +86,11 @@ class ServiceProvider extends AddonServiceProvider
         $this->registerDrivers();
         $this->register();
 
-        // Statamic >= V6 - unbind the settings blueprint to remove the default settings page and permissions 
+        $this->publishes([
+            __DIR__.'/../resources/blueprints' => resource_path('blueprints/vendor/alt-password-protect'),
+        ], 'alt-password-protect-blueprints');
+
+        // Statamic >= V6 - unbind the settings blueprint to remove the default settings page and permissions
         // as we are handling this manually instead
         if(intval(Str::before(Version::get(), '.')) >= 6) {
             app()->offsetUnset("statamic.addons.alt-password-protect.settings_blueprint");

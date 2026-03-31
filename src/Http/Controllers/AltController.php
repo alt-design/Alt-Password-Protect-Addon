@@ -84,14 +84,27 @@ class AltController extends PasswordProtectController {
             if($this->tokenData['scheme'] == 'alt_password_protect_default') {
                 $theData = new Data('settings');
                 $pagePassword = $theData->get('alt_protect_custom_password_default');
+
+                $valid = (new CustomGuard($pagePassword))->check($this->password);
+
+                if (! $valid) {
+                    foreach ($theData->get('alt_protect_additional_passwords') ?? [] as $entry) {
+                        if ((new CustomGuard($entry['password'] ?? null))->check($this->password)) {
+                            $valid = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (! $valid) {
+                    return back()->withErrors(['password' => __('statamic::messages.password_protect_incorrect_password')], 'passwordProtect');
+                }
             } else {
                 $pagePassword = $this->pagePassword($pageUrl);
-            }
 
-            $guard = new CustomGuard($pagePassword);
-
-            if (! $guard->check($this->password)) {
-                return back()->withErrors(['password' => __('statamic::messages.password_protect_incorrect_password')], 'passwordProtect');
+                if (! (new CustomGuard($pagePassword))->check($this->password)) {
+                    return back()->withErrors(['password' => __('statamic::messages.password_protect_incorrect_password')], 'passwordProtect');
+                }
             }
 
             return $this

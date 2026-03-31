@@ -19,6 +19,27 @@ tabs:
               visibility: visible
               replicator_preview: true
               hide_display: false
+              validate:
+                - 'required_with:alt_protect_additional_passwords'
+          -
+            handle: alt_protect_additional_passwords
+            field:
+              type: grid
+              display: 'Additional Passwords'
+              instructions: 'Add extra passwords that will also be accepted alongside the default password. The original default password field above is unchanged for backwards compatibility.'
+              icon: grid
+              listable: hidden
+              instructions_position: above
+              replicator_preview: true
+              hide_display: false
+              fields:
+                -
+                  handle: password
+                  field:
+                    type: text
+                    display: Password
+                    input_type: text
+                    antlers: false
           -
             handle: hide_password_protected_entries_from_listings
             field:

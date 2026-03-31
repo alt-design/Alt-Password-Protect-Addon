@@ -26,6 +26,22 @@ There's also the ability to remove the password protected items from collections
 
 You can then also override the hide using `alt_protect_ignore="true"` on your collection tag.
 
+## How to Uninstall
+
+> **Warning:** Do not remove the addon via Composer before running the prepare-uninstall command. If you do, any entries still using the addon's protection schemes will throw 403 errors because the drivers will no longer exist.
+
+**Step 1** — Run the prepare-uninstall command from your project root. This will strip the `protect` and `alt_protect_custom_password` fields from all entries that use this addon's protection schemes. Make sure you have a full backup before running this.
+
+```bash
+php artisan alt-password-protect:prepare-uninstall
+```
+
+**Step 2** — Once the command has completed, remove the addon via Composer:
+
+```bash
+composer remove alt-design/alt-password-protect
+```
+
 ## Questions etc
 
 Drop us a big shout-out if you have any questions, comments, or concerns. We're always looking to improve our addons, so if you have any feature requests, we'd love to hear them.

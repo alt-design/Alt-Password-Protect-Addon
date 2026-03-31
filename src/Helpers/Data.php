@@ -71,6 +71,12 @@ class Data
     public function getBlueprint($default = false)
     {
         if($default) {
+            $publishedPath = resource_path('blueprints/vendor/alt-password-protect');
+
+            if (file_exists($publishedPath . '/' . $this->type . '.yaml')) {
+                return with(new BlueprintRepository)->setDirectory($publishedPath)->find($this->type);
+            }
+
             return with(new BlueprintRepository)->setDirectory(__DIR__ . '/../../resources/blueprints')->find($this->type);
         }
 

@@ -2,6 +2,7 @@
 
 namespace AltDesign\AltPasswordProtect;
 
+use AltDesign\AltPasswordProtect\Commands\StripProtectionFields;
 use AltDesign\AltPasswordProtect\Events\UpdateBlueprint;
 use AltDesign\AltPasswordProtect\Http\Controllers\AltController;
 use AltDesign\AltPasswordProtect\Protectors\CustomPasswordProtector;
@@ -20,6 +21,10 @@ class ServiceProvider extends AddonServiceProvider
 {
 
     protected $viewNamespace = 'alt-password-protect';
+
+    protected $commands = [
+        StripProtectionFields::class,
+    ];
 
     protected $modifiers = [
         //

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Str;
 use Statamic\Auth\Protect\ProtectorManager;
 use Statamic\Auth\Protect\Protectors\Password\Controller as PasswordProtectController;
+use AltDesign\AltPasswordProtect\Support\AltToolsNav;
 use Statamic\Facades\CP\Nav;
 use Statamic\Facades\Permission;
 use Statamic\Providers\AddonServiceProvider;
@@ -41,11 +42,7 @@ class ServiceProvider extends AddonServiceProvider
     public function addToNav()
     {
         Nav::extend(function ($nav) {
-            $nav->content('Alt Password Protect')
-                ->section('Tools')
-                ->can('view alt-password-protect')
-                ->route('alt-password-protect.index')
-                ->icon(config('alt-password-protect.alt_password_protect_icon'));
+            AltToolsNav::add($nav, 'privacy', 'Alt Password Protect', 'alt-password-protect.index', 'view alt-password-protect', ['padlock-locked', 'lock']);
         });
     }
 

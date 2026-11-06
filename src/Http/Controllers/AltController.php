@@ -37,7 +37,7 @@ class AltController extends PasswordProtectController {
         if(intval(Str::before(Version::get(), '.')) >= 6) {
             return PublishForm::make($blueprint)
                 ->title('Alt Password Protect')
-                ->icon(config('alt-password-protect.alt_password_protect_icon'))
+                ->icon('padlock-locked')
                 ->values($fields->values()->toArray())
                 ->submittingTo(cp_route('alt-password-protect.update'), 'POST');
         }

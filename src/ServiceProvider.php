@@ -42,7 +42,7 @@ class ServiceProvider extends AddonServiceProvider
     {
         Nav::extend(function ($nav) {
             $nav->content('Alt Password Protect')
-                ->section('Tools')
+                ->section('Alt Tools')
                 ->can('view alt-password-protect')
                 ->route('alt-password-protect.index')
                 ->icon(config('alt-password-protect.alt_password_protect_icon'));
